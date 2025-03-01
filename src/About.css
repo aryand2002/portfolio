@@ -1,0 +1,64 @@
+.container2{
+    padding-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    background-color: #212436;
+    color: white;
+}
+
+.sub_container3 img{
+    margin-top:-20px ;
+    margin-left: 80px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 10px solid rgb(113, 113, 205);
+}
+
+.sub_container4{
+    margin-top: -20px;
+    width: 500px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.intro{
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.about{
+    font-size: 2.3rem;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+}
+
+.description1{
+    margin-top: 10px;
+    line-height: 20px;
+    word-spacing: 3px;
+    font-size: .9rem;
+}
+
+
+.description2{
+    line-height: 20px;
+    word-spacing: 3px;
+    font-size: .9rem;
+}
+
+.social_media_logo{
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.social_media_logo img{
+width: 30px;
+height: 30px;
+border-radius: 50%;
+}
