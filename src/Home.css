@@ -1,0 +1,63 @@
+.container1{
+    display: flex;
+    justify-content: space-between;
+    padding: 90px 0 70px 0;
+    background-color: #1d1a2b;
+    color: white;
+}
+
+.sub_container1{
+display: flex;
+flex-direction: column;
+justify-content: left;
+margin-left: 30px;
+gap: 10px;
+width: 500px;
+}
+
+.starter{
+    margin-left: 0px;
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
+.starter span{
+    color: rgb(113, 113, 205);
+}
+
+.name{
+    color:rgb(113, 113, 205) ;
+    font-weight: bold;
+    font-size: 2.3rem;
+}
+
+.job{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.description{
+    margin-top: 10px;
+    word-spacing: 2px;
+}
+
+.resume{
+    margin-top: 20px;
+    width: 100px;
+    height: 35px;
+    color: white;
+    background-color: rgb(113, 113, 205);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.myimg{
+    margin-top:-20px ;
+    margin-right:120px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 10px solid rgb(113, 113, 205);
+}
