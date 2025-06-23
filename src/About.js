@@ -9,12 +9,11 @@ function About() {
     AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
   }, []);
 
-    return (
+  return (
     <section
       id="about"
       className="bg-[#212436] text-white py-24 px-6 md:px-20 lg:px-32 min-h-screen flex flex-col md:flex-row items-center md:items-start gap-16"
     >
-      {/* Image with fade-right animation */}
       <div
         data-aos="fade-right"
         className="flex-shrink-0 bg-gradient-to-tr from-indigo-600 via-purple-600 to-pink-600 p-1 rounded-full shadow-lg"
@@ -24,9 +23,8 @@ function About() {
           alt="Aryan Dewangan"
           className="w-72 h-72 md:w-80 md:h-80 rounded-full object-cover border-4 border-[#1d1a2b] shadow-2xl transition-transform duration-500 hover:scale-105"
         />
-                </div>
-                
-      {/* Text block with fade-left animation */}
+      </div>
+
       <div data-aos="fade-left" className="max-w-xl flex flex-col gap-8">
         <h3 className="text-2xl font-extrabold tracking-wide uppercase text-indigo-400">
           My <span className="text-pink-400">Intro</span>
@@ -44,7 +42,6 @@ function About() {
           techniques. I'm always eager to learn and adapt, and I value effective teamwork and time management.
         </p>
 
-        {/* Social Icons */}
         <div className="flex gap-8 mt-2">
           <a
             href="https://github.com/aryand2002"
