@@ -12,7 +12,7 @@ function Home() {
 
     return (
     <section
-      id="Home"
+      id="home"
       className="bg-[#1d1a2b] text-white min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-16 lg:px-24 py-20"
     >
       {/* ====== Text Section ====== */}
