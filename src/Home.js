@@ -3,14 +3,12 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Image1 from './Image/myImg.JPG';
 
-
-
 function Home() {
   useEffect(() => {
-    AOS.init({ duration: 1000, easing: 'ease-in-out', once: true });
+    AOS.init({ duration: 800, easing: 'ease-out-quad', once: true });
   }, []);
 
-    return (
+  return (
     <section
       id="home"
       className="bg-[#1d1a2b] text-white min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-16 lg:px-24 py-20"
@@ -18,26 +16,26 @@ function Home() {
       {/* ====== Text Section ====== */}
       <div
         data-aos="fade-up"
-        className="w-full md:w-1/2 flex flex-col gap-5"
+        data-aos-delay="100"
+        className="w-full md:w-1/2 flex flex-col gap-6"
       >
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-          Hello,&nbsp;
-          <span className="text-[rgb(113,113,205)]">I'm</span> Aryan Dewangan
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight tracking-tight">
+          Hello, <span className="text-indigo-400">I'm</span> Aryan Dewangan
         </h1>
 
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-300">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-200">
           Full Stack Developer
         </h2>
 
-        <p className="text-gray-400 mt-2 tracking-wide leading-relaxed max-w-md">
-          I craft modern web applications with optimized, clean code and engaging user interfaces. I focus on performance, design, and user experience.
+        <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-lg">
+          I build modern, high-performance web applications with clean code and intuitive user interfaces, prioritizing seamless user experiences and robust functionality.
         </p>
 
         {/* Resume Button */}
         <a
           href="myresume.pdf"
           download
-          className="mt-6 inline-flex items-center gap-3 bg-[rgb(113,113,205)] hover:bg-indigo-600 transition duration-300 text-white font-semibold px-6 py-3 rounded-md shadow-lg w-fit"
+          className="mt-8 inline-flex items-center gap-2 bg-indigo-400 hover:bg-indigo-500 transition-colors duration-200 text-white font-medium px-6 py-3 rounded-lg shadow-sm w-fit focus:outline-none focus:ring-2 focus:ring-indigo-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -55,25 +53,24 @@ function Home() {
           </svg>
           Download Resume
         </a>
-                </div>
+      </div>
 
       {/* ====== Image Section ====== */}
       <div
         data-aos="fade-left"
+        data-aos-delay="200"
         className="w-full md:w-1/2 flex justify-center md:justify-end mb-12 md:mb-0"
       >
-        <div className="relative group">
+        <div className="relative">
           <img
             src={Image1}
             alt="Aryan Dewangan"
-            className="w-64 h-64 md:w-80 md:h-80 rounded-full border-[10px] border-[rgb(113,113,205)] object-cover shadow-xl group-hover:scale-105 transition duration-300"
+            className="w-64 h-64 md:w-80 md:h-80 rounded-full border-8 border-indigo-400 object-cover shadow-lg transition-transform duration-300 hover:scale-[1.02]"
           />
-          <div className="absolute inset-0 rounded-full bg-[rgb(113,113,205)] opacity-0 group-hover:opacity-10 transition duration-300"></div>
-            </div>
+        </div>
       </div>
     </section>
   );
 }
 
 export default Home;
-

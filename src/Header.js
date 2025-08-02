@@ -15,13 +15,13 @@ function Header() {
   ];
 
   return (
-    <header className="bg-[#1d1a2b] text-white px-6 py-4 flex justify-between items-center fixed w-full z-20 top-0 shadow-md">
-      <h2 className="text-xl font-bold font-sans">
-        Aryan <span className="text-[rgb(113,113,205)]">Dewangan</span>
+    <header className="bg-[#1d1a2b] text-white px-6 py-4 flex justify-between items-center fixed w-full z-20 top-0 shadow-sm">
+      <h2 className="text-2xl font-semibold font-sans tracking-tight">
+        Aryan <span className="text-indigo-400">Dewangan</span>
       </h2>
 
       {/* Desktop Menu */}
-      <nav className="hidden md:flex gap-10 font-bold text-lg">
+      <nav className="hidden md:flex gap-8 font-medium text-base">
         {navItems.map((item) => (
           <Link
             key={item.name}
@@ -29,13 +29,14 @@ function Header() {
             smooth={true}
             duration={500}
             offset={-70}
-            className={`
-              list-none cursor-pointer relative transition 
-              hover:text-indigo-400
-              after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] 
+            className="
+              relative cursor-pointer transition-colors duration-200 
+              text-white hover:text-indigo-400
+              after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] 
               after:bg-indigo-400 after:scale-x-0 hover:after:scale-x-100 
-              after:origin-left after:transition-transform after:duration-300
-            `}
+              after:origin-center after:transition-transform after:duration-200
+              focus:outline-none focus:after:scale-x-100 focus:text-indigo-400
+            "
           >
             {item.name}
           </Link>
@@ -45,29 +46,29 @@ function Header() {
       {/* Hamburger Icon */}
       <button
         onClick={toggleMenu}
-        className="md:hidden flex flex-col justify-center items-center w-8 h-8 cursor-pointer focus:outline-none"
+        className="md:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded"
         aria-label={isOpen ? 'Close menu' : 'Open menu'}
       >
         <span
           className={`block w-6 h-0.5 bg-white rounded transform transition duration-300 ease-in-out ${
-            isOpen ? 'rotate-45 translate-y-1.5' : ''
+            isOpen ? 'rotate-45 translate-y-2' : ''
           }`}
         ></span>
         <span
-          className={`block w-6 h-0.5 bg-white rounded my-1 transition-opacity duration-300 ease-in-out ${
+          className={`block w-6 h-0.5 bg-white rounded my-1.5 transition-opacity duration-300 ease-in-out ${
             isOpen ? 'opacity-0' : 'opacity-100'
           }`}
         ></span>
         <span
           className={`block w-6 h-0.5 bg-white rounded transform transition duration-300 ease-in-out ${
-            isOpen ? '-rotate-45 -translate-y-1.5' : ''
+            isOpen ? '-rotate-45 -translate-y-2' : ''
           }`}
         ></span>
       </button>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <nav className="fixed top-[70px] left-0 w-full bg-[#1d1a2b] flex flex-col items-center py-6 space-y-6 text-xl font-bold md:hidden z-10 shadow-lg">
+        <nav className="fixed top-[72px] left-0 w-full bg-[#1d1a2b] flex flex-col items-center py-8 space-y-5 text-base font-medium md:hidden z-10 shadow-md">
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -76,20 +77,22 @@ function Header() {
               duration={500}
               offset={-70}
               onClick={() => setIsOpen(false)}
-              className={`
-                list-none cursor-pointer relative transition 
-                hover:text-indigo-400
-                after:absolute after:left-0 after:-bottom-1 after:w-full after:h-[2px] 
+              className="
+                relative cursor-pointer transition-colors duration-200 
+                text-white hover:text-indigo-400
+                after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] 
                 after:bg-indigo-400 after:scale-x-0 hover:after:scale-x-100 
-                after:origin-left after:transition-transform after:duration-300
-              `}
+                after:origin-center after:transition-transform after:duration-200
+                focus:outline-none focus:after:scale-x-100 focus:text-indigo-400
+              "
             >
               {item.name}
             </Link>
           ))}
         </nav>
       )}
-        </header>
+    </header>
   );
 }
+
 export default Header;

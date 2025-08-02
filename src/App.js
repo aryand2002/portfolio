@@ -6,19 +6,20 @@ import About from './About';
 import Skills from './Skills';
 import Project from './Project';
 import Contact from './Contact';
+import Footer from './Footer';
 
 
 
 function App() {
   return (
     <div>
-      <Header></Header>
-      <Home/>
-      <About/>
-      <Skills/>
-      <Project/>
-      <Contact/>
-
+      <Header />
+      <Home />
+      <About />
+      <Skills />
+      <Project />
+      <Contact />
+      <Footer />
     </div>
   );
 }

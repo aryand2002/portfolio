@@ -1,141 +1,197 @@
-import React from "react";
-import { Form, Input, Button } from "antd";
-import TextArea from "antd/es/input/TextArea";
+import React, { useEffect } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { TextField, Button } from "@mui/material";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Contact() {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      name: "",
+      mobile: "",
+      email: "",
+      message: "",
+    },
+  });
+
+  useEffect(() => {
+    AOS.init({ duration: 800, easing: "ease-out-quad", once: true });
+  }, []);
+
+  const onSubmit = (data) => {
+    console.log("Submitted Data:", data);
+  };
+
   return (
-    <div className="min-h-screen bg-[#1d1a2b] flex justify-center items-center py-16 px-4" id="contact">
-      <div className="w-full max-w-md bg-[#29253d] rounded-lg shadow-lg p-10">
-        <h2 className="text-3xl font-bold text-white mb-8 text-center">
+    <div
+      id="contact"
+      className="min-h-screen bg-[#1d1a2b] flex items-center justify-center px-4 py-16"
+    >
+      <div
+        data-aos="fade-up"
+        data-aos-delay="100"
+        className="w-full max-w-lg bg-[#29253d] p-8 rounded-xl shadow-xl"
+      >
+        <h2 className="text-3xl text-white font-semibold text-center mb-8">
           Contact Me
         </h2>
-        <Form
-          layout="vertical"
-          requiredMark={false}
-          onFinish={(values) => {
-            console.log("Form Submitted:", values);
-          }}
-        >
-          <Form.Item
-            label={<span className="text-white font-semibold">Username</span>}
+
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          {/* Name */}
+          <Controller
             name="name"
-            rules={[{ required: true, message: "Please enter your username" }]}
-          >
-            <Input
-              placeholder="Enter your username"
-              className="
-                bg-gray-100 
-                border border-gray-300 
-                rounded-md 
-                text-black 
-                placeholder-gray-500 
-                focus:border-indigo-500 
-                focus:ring 
-                focus:ring-indigo-300 
-                focus:ring-opacity-50 
-                caret-black 
-                selection:bg-indigo-600 
-                selection:text-white
-              "
-            />
-        </Form.Item>
+            control={control}
+            rules={{ required: "Name is required" }}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                label="Name"
+                fullWidth
+                placeholder="Your name"
+                error={!!errors.name}
+                helperText={errors.name?.message}
+                variant="outlined"
+                InputLabelProps={{
+                  style: { color: "#fff" },
+                }}
+                InputProps={{
+                  style: {
+                    color: "#fff",
+                    backgroundColor: "#3a3552",
+                    borderRadius: 8,
+                  },
+                }}
+              />
+            )}
+          />
 
-          <Form.Item
-            label={<span className="text-white font-semibold">Mobile</span>}
+          {/* Mobile */}
+          <Controller
             name="mobile"
-            rules={[
-              { required: true, message: "Please enter your mobile number" },
-              { pattern: /^[0-9]+$/, message: "Only numbers allowed" },
-            ]}
-          >
-            <Input
-              placeholder="Enter your mobile number"
-              maxLength={15}
-              className="
-                bg-gray-100 
-                border border-gray-300 
-                rounded-md 
-                text-black 
-                placeholder-gray-500 
-                focus:border-indigo-500 
-                focus:ring 
-                focus:ring-indigo-300 
-                focus:ring-opacity-50 
-                caret-black 
-                selection:bg-indigo-600 
-                selection:text-white
-              "
-            />
-        </Form.Item>
+            control={control}
+            rules={{
+              required: "Mobile number is required",
+              pattern: {
+                value: /^[0-9]+$/,
+                message: "Only numbers allowed",
+              },
+            }}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                label="Mobile"
+                fullWidth
+                placeholder="Mobile number"
+                error={!!errors.mobile}
+                helperText={errors.mobile?.message}
+                variant="outlined"
+                InputLabelProps={{
+                  style: { color: "#fff" },
+                }}
+                InputProps={{
+                  style: {
+                    color: "#fff",
+                    backgroundColor: "#3a3552",
+                    borderRadius: 8,
+                  },
+                }}
+              />
+            )}
+          />
 
-          <Form.Item
-            label={<span className="text-white font-semibold">Email</span>}
+          {/* Email */}
+          <Controller
             name="email"
-            rules={[
-              { required: true, message: "Please enter your email" },
-              { type: "email", message: "Please enter a valid email" },
-            ]}
-          >
-            <Input
-              type="email"
-              placeholder="Enter your email address"
-              className="
-                bg-gray-100 
-                border border-gray-300 
-                rounded-md 
-                text-black 
-                placeholder-gray-500 
-                focus:border-indigo-500 
-                focus:ring 
-                focus:ring-indigo-300 
-                focus:ring-opacity-50 
-                caret-black 
-                selection:bg-indigo-600 
-                selection:text-white
-              "
-            />
-        </Form.Item>
+            control={control}
+            rules={{
+              required: "Email is required",
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "Enter a valid email",
+              },
+            }}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                label="Email"
+                fullWidth
+                placeholder="Email address"
+                error={!!errors.email}
+                helperText={errors.email?.message}
+                variant="outlined"
+                InputLabelProps={{
+                  style: { color: "#fff" },
+                }}
+                InputProps={{
+                  style: {
+                    color: "#fff",
+                    backgroundColor: "#3a3552",
+                    borderRadius: 8,
+                  },
+                }}
+              />
+            )}
+          />
 
-          <Form.Item
-            label={<span className="text-white font-semibold">Message</span>}
+          {/* Message */}
+          <Controller
             name="message"
-            rules={[
-              { required: true, message: "Please enter your message" },
-              { min: 10, message: "Message must be at least 10 characters" },
-            ]}
+            control={control}
+            rules={{
+              required: "Message is required",
+              minLength: {
+                value: 10,
+                message: "Message should be at least 10 characters",
+              },
+            }}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                label="Message"
+                fullWidth
+                multiline
+                rows={4}
+                placeholder="Write your message..."
+                error={!!errors.message}
+                helperText={errors.message?.message}
+                variant="outlined"
+                InputLabelProps={{
+                  style: { color: "#fff" },
+                }}
+                InputProps={{
+                  style: {
+                    color: "#fff",
+                    backgroundColor: "#3a3552",
+                    borderRadius: 8,
+                  },
+                }}
+              />
+            )}
+          />
+
+          {/* Submit Button */}
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{
+              backgroundColor: "#818cf8",
+              textTransform: "none",
+              fontWeight: 600,
+              borderRadius: 2,
+              paddingY: "12px",
+              "&:hover": {
+                backgroundColor: "#6366f1",
+              },
+            }}
           >
-            <TextArea
-              rows={4}
-              placeholder="Write your message here"
-              className="
-                bg-gray-100 
-                border border-gray-300 
-                rounded-md 
-                text-black 
-                placeholder-gray-500 
-                focus:border-indigo-500 
-                focus:ring 
-                focus:ring-indigo-300 
-                focus:ring-opacity-50 
-                resize-none
-                caret-black 
-                selection:bg-indigo-600 
-                selection:text-white
-              "
-            />
-        </Form.Item>
-        
-          <Form.Item>
-            <Button
-              htmlType="submit"
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-md transition-colors duration-300"
-              size="large"
-              type="primary"
-            >
-              Submit
-            </Button>
-          </Form.Item>
-      </Form>
+            Submit
+          </Button>
+        </form>
       </div>
     </div>
   );
