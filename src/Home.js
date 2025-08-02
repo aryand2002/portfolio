@@ -33,7 +33,7 @@ function Home() {
 
         {/* Resume Button */}
         <a
-          href="myresume.pdf"
+          href="/myresume.pdf"
           download
           className="mt-8 inline-flex items-center gap-2 bg-indigo-400 hover:bg-indigo-500 transition-colors duration-200 text-white font-medium px-6 py-3 rounded-lg shadow-sm w-fit focus:outline-none focus:ring-2 focus:ring-indigo-400"
         >
