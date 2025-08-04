@@ -66,9 +66,9 @@ function Project() {
   };
 
   return (
-    <section id="projects" className="relative bg-[#f9f9ff] py-24 px-6 lg:px-24">
+    <section id="projects" className="relative bg-[#f9f9ff] py-20 px-4 sm:px-6 lg:px-24">
       <div className="max-w-7xl mx-auto relative">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-14 text-gray-900">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 text-gray-900">
           My <span className="text-blue-600">Projects</span>
         </h2>
 
@@ -88,26 +88,26 @@ function Project() {
           →
         </button>
 
-        {/* Projects Container */}
+        {/* Project Cards */}
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto gap-6 scroll-smooth snap-x snap-mandatory hide-scrollbar px-2"
+          className="flex overflow-x-auto gap-5 sm:gap-6 scroll-smooth snap-x snap-mandatory hide-scrollbar px-1 sm:px-2"
         >
           {projects.map(({ image, title, description }, idx) => (
             <div
               key={idx}
-              className="min-w-[320px] max-w-[320px] snap-start bg-white rounded-2xl shadow transition-transform transform hover:-translate-y-2 hover:shadow-xl duration-300 flex flex-col"
+              className="min-w-[280px] sm:min-w-[300px] max-w-[320px] snap-start bg-white rounded-2xl shadow transition-transform transform hover:-translate-y-2 hover:shadow-xl duration-300 flex flex-col"
               data-aos="fade-up"
               data-aos-delay={idx * 100}
             >
               <img
                 src={image}
                 alt={title}
-                className="w-full h-48 object-cover rounded-t-2xl"
+                className="w-full h-44 sm:h-48 object-cover rounded-t-2xl"
                 loading="lazy"
               />
-              <div className="p-5 flex flex-col h-full">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">{title}</h3>
+              <div className="p-4 sm:p-5 flex flex-col h-full">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2">{title}</h3>
                 <p className="text-sm text-gray-600 flex-grow">{description}</p>
                 <button className="mt-4 text-blue-600 text-sm font-medium hover:underline">
                   View Details →

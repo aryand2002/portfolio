@@ -8,9 +8,10 @@ function Header() {
   const navItems = ['Home', 'About', 'Skills', 'Project', 'Contact'];
 
   return (
-    <header className="bg-white/80 backdrop-blur-md text-gray-900 px-6 py-4 flex justify-between items-center fixed w-full z-50 top-0 shadow-sm">
+    <header className="bg-white/80 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm text-gray-900 px-6 py-4 flex justify-between items-center">
+      {/* Logo or Initials */}
       <h2 className="text-2xl font-bold font-sans tracking-tight text-blue-600">
-        Aryan <span className="text-gray-800">Dewangan</span>
+        <span className="bg-blue-600 text-white px-2 py-1 rounded">AD</span>
       </h2>
 
       {/* Desktop Menu */}
@@ -37,17 +38,17 @@ function Header() {
       >
         <span
           className={`bg-blue-600 h-0.5 w-6 rounded transition-all duration-300 ${
-            isOpen ? 'rotate-45 translate-y-[7px]' : 'w-6'
+            isOpen ? 'rotate-45 translate-y-[6px]' : ''
           }`}
         />
         <span
-          className={`bg-blue-600 h-0.5 my-1 rounded transition-all duration-300 ${
-            isOpen ? 'opacity-0' : 'w-4'
+          className={`bg-blue-600 h-0.5 my-1 w-6 rounded transition-all duration-300 ${
+            isOpen ? 'opacity-100 rotate-[-45deg] -translate-y-[6px]' : ''
           }`}
         />
         <span
-          className={`bg-blue-600 h-0.5 rounded transition-all duration-300 ${
-            isOpen ? '-rotate-45 -translate-y-[7px]' : 'w-2'
+          className={`bg-blue-600 h-0.5 w-6 rounded transition-all duration-300 ${
+            isOpen ? 'hidden' : ''
           }`}
         />
       </button>
