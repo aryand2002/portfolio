@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "./Project.css";
 
-// Images
+// Import project images
 import Gym from "./Image/gym.jpg";
 import DocVault from "./Image/docvault.jpg";
 import Event from "./Image/event.webp";
@@ -15,77 +16,102 @@ const projects = [
     image: Matrimony,
     title: "Matrimony & Community App",
     description:
-      "A matchmaking platform with JWT auth, detailed profiles, horoscope match, photo uploads, and Razorpay integration — built using Django & React.",
+      "Matchmaking app with auth, profiles, horoscope match, photos, and Razorpay — Django + React.",
   },
   {
     image: DDC,
     title: "DDC Consultancy",
     description:
-      "Business consultancy website with service listings, digital strategy info, contact forms, and responsive layout — built for clarity and trust.",
+      "Consultancy site with modern services, forms, and responsive UI — built with React.",
   },
   {
     image: Gym,
     title: "Gym Management System",
     description:
-      "Web app for gym registration, trainer scheduling, attendance tracking, and payment reminders. Built with Django backend and React frontend.",
+      "Manage gyms with trainer schedules, attendance, and payments — Django + React stack.",
   },
   {
     image: DocVault,
-    title: "DocVault - Document Manager",
+    title: "DocVault",
     description:
-      "Secure cloud-like storage system for personal docs. Features encryption, user auth, and organized file handling. Inspired by DigiLocker.",
+      "Secure personal doc manager like DigiLocker with auth and encryption — React + Django.",
   },
   {
     image: Event,
     title: "Soni Blissful Events",
     description:
-      "Event booking platform with service filters, inquiry form, gallery, and mobile responsiveness. Designed for a local event company.",
+      "Book events with filters, inquiries, gallery and more — smooth, responsive design.",
   },
   {
     image: Servico,
-    title: "Servico - Local Services App",
+    title: "Servico",
     description:
-      "App that connects users to nearby service providers with booking, reviews, and category filters. Built with Django + React stack.",
+      "Find local service providers, book services, add reviews — full-stack Django + React app.",
   },
 ];
 
 function Project() {
+  const scrollRef = useRef(null);
+
   useEffect(() => {
-    AOS.init({ duration: 800, easing: "ease-in-out", once: true });
+    AOS.init({ duration: 800, once: true });
   }, []);
 
+  const scrollLeft = () => {
+    scrollRef.current.scrollBy({ left: -350, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    scrollRef.current.scrollBy({ left: 350, behavior: "smooth" });
+  };
+
   return (
-    <section className="bg-gray-950 py-24 px-6 sm:px-12 lg:px-24 min-h-screen">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-14 text-center tracking-tight">
-          My <span className="text-indigo-500">Projects</span>
+    <section id="projects" className="relative bg-[#f9f9ff] py-24 px-6 lg:px-24">
+      <div className="max-w-7xl mx-auto relative">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-14 text-gray-900">
+          My <span className="text-blue-600">Projects</span>
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {/* Left Arrow */}
+        <button
+          onClick={scrollLeft}
+          className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 bg-white border shadow rounded-full hover:bg-blue-100 transition"
+        >
+          ←
+        </button>
+
+        {/* Right Arrow */}
+        <button
+          onClick={scrollRight}
+          className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 bg-white border shadow rounded-full hover:bg-blue-100 transition"
+        >
+          →
+        </button>
+
+        {/* Projects Container */}
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto gap-6 scroll-smooth snap-x snap-mandatory hide-scrollbar px-2"
+        >
           {projects.map(({ image, title, description }, idx) => (
             <div
               key={idx}
+              className="min-w-[320px] max-w-[320px] snap-start bg-white rounded-2xl shadow transition-transform transform hover:-translate-y-2 hover:shadow-xl duration-300 flex flex-col"
               data-aos="fade-up"
               data-aos-delay={idx * 100}
-              className="bg-gradient-to-b from-white/5 to-white/10 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
             >
               <img
                 src={image}
                 alt={title}
+                className="w-full h-48 object-cover rounded-t-2xl"
                 loading="lazy"
-                className="w-full h-56 object-cover"
               />
-
-              <div className="p-6 flex flex-col h-full">
-                <h3 className="text-xl font-semibold text-white mb-3">{title}</h3>
-                <p className="text-gray-300 text-sm leading-relaxed flex-grow">
-                  {description}
-                </p>
-                <div className="mt-4">
-                  <button className="text-sm text-indigo-400 hover:text-indigo-300 font-medium underline underline-offset-4 transition-colors">
-                    View Details
-                  </button>
-                </div>
+              <div className="p-5 flex flex-col h-full">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">{title}</h3>
+                <p className="text-sm text-gray-600 flex-grow">{description}</p>
+                <button className="mt-4 text-blue-600 text-sm font-medium hover:underline">
+                  View Details →
+                </button>
               </div>
             </div>
           ))}

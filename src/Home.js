@@ -5,39 +5,38 @@ import Image1 from './Image/myImg.JPG';
 
 function Home() {
   useEffect(() => {
-    AOS.init({ duration: 800, easing: 'ease-out-quad', once: true });
+    AOS.init({ duration: 1000, easing: 'ease-out-cubic', once: true });
   }, []);
 
   return (
     <section
       id="home"
-      className="bg-[#1d1a2b] text-white min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-16 lg:px-24 py-20"
+      className="bg-white text-gray-900 min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-16 lg:px-24 py-24"
     >
-      {/* ====== Text Section ====== */}
+      {/* Text Section */}
       <div
-        data-aos="fade-up"
-        data-aos-delay="100"
-        className="w-full md:w-1/2 flex flex-col gap-6"
+        data-aos="fade-right"
+        data-aos-delay="150"
+        className="w-full md:w-1/2 flex flex-col gap-8"
       >
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight tracking-tight">
-          Hello, <span className="text-indigo-400">I'm</span> Aryan Dewangan
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight font-sans">
+          Hello, <span className="text-blue-600">I'm</span> Aryan Dewangan
         </h1>
 
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-200">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-700">
           Full Stack Developer
         </h2>
 
-        <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-lg">
-          I build modern, high-performance web applications with clean code and intuitive user interfaces, prioritizing seamless user experiences and robust functionality.
+        <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-md">
+          I craft modern, high-performance web applications with clean code and intuitive user interfaces, delivering seamless experiences and robust functionality.
         </p>
 
         {/* Resume Button */}
         <a
           href="https://drive.google.com/file/d/1detbZdns3m8Rp1PpWBONk7PBXEEEhagg/view?usp=drive_link"
-          download
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-8 inline-flex items-center gap-2 bg-indigo-400 hover:bg-indigo-500 transition-colors duration-200 text-white font-medium px-6 py-3 rounded-lg shadow-sm w-fit focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          className="mt-8 inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 transition-all duration-300 text-white font-semibold px-6 py-3 rounded-xl shadow-md w-fit focus:outline-none focus:ring-2 focus:ring-blue-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -57,17 +56,18 @@ function Home() {
         </a>
       </div>
 
-      {/* ====== Image Section ====== */}
+      {/* Image Section */}
       <div
         data-aos="fade-left"
-        data-aos-delay="200"
+        data-aos-delay="300"
         className="w-full md:w-1/2 flex justify-center md:justify-end mb-12 md:mb-0"
       >
         <div className="relative">
+          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 opacity-60 blur-md"></div>
           <img
             src={Image1}
             alt="Aryan Dewangan"
-            className="w-64 h-64 md:w-80 md:h-80 rounded-full border-8 border-indigo-400 object-cover shadow-lg transition-transform duration-300 hover:scale-[1.02]"
+            className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-blue-500 object-cover shadow-2xl transition-transform duration-500 hover:scale-105"
           />
         </div>
       </div>

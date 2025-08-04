@@ -3,42 +3,28 @@ import { Link } from 'react-scroll';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const navItems = [
-    { name: 'Home' },
-    { name: 'About' },
-    { name: 'Skills' },
-    { name: 'Project' },
-    { name: 'Contact' },
-  ];
+  const navItems = ['Home', 'About', 'Skills', 'Project', 'Contact'];
 
   return (
-    <header className="bg-[#1d1a2b] text-white px-6 py-4 flex justify-between items-center fixed w-full z-20 top-0 shadow-sm">
-      <h2 className="text-2xl font-semibold font-sans tracking-tight">
-        Aryan <span className="text-indigo-400">Dewangan</span>
+    <header className="bg-white/80 backdrop-blur-md text-gray-900 px-6 py-4 flex justify-between items-center fixed w-full z-50 top-0 shadow-sm">
+      <h2 className="text-2xl font-bold font-sans tracking-tight text-blue-600">
+        Aryan <span className="text-gray-800">Dewangan</span>
       </h2>
 
       {/* Desktop Menu */}
       <nav className="hidden md:flex gap-8 font-medium text-base">
-        {navItems.map((item) => (
+        {navItems.map((name) => (
           <Link
-            key={item.name}
-            to={item.name.toLowerCase()}
+            key={name}
+            to={name.toLowerCase()}
             smooth={true}
             duration={500}
             offset={-70}
-            className="
-              relative cursor-pointer transition-colors duration-200 
-              text-white hover:text-indigo-400
-              after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] 
-              after:bg-indigo-400 after:scale-x-0 hover:after:scale-x-100 
-              after:origin-center after:transition-transform after:duration-200
-              focus:outline-none focus:after:scale-x-100 focus:text-indigo-400
-            "
+            className="cursor-pointer relative text-gray-700 hover:text-blue-600 transition after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-blue-600 after:transition-all after:duration-300"
           >
-            {item.name}
+            {name}
           </Link>
         ))}
       </nav>
@@ -46,47 +32,40 @@ function Header() {
       {/* Hamburger Icon */}
       <button
         onClick={toggleMenu}
-        className="md:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+        className="md:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer group"
         aria-label={isOpen ? 'Close menu' : 'Open menu'}
       >
         <span
-          className={`block w-6 h-0.5 bg-white rounded transform transition duration-300 ease-in-out ${
-            isOpen ? 'rotate-45 translate-y-2' : ''
+          className={`bg-blue-600 h-0.5 w-6 rounded transition-all duration-300 ${
+            isOpen ? 'rotate-45 translate-y-[7px]' : 'w-6'
           }`}
-        ></span>
+        />
         <span
-          className={`block w-6 h-0.5 bg-white rounded my-1.5 transition-opacity duration-300 ease-in-out ${
-            isOpen ? 'opacity-0' : 'opacity-100'
+          className={`bg-blue-600 h-0.5 my-1 rounded transition-all duration-300 ${
+            isOpen ? 'opacity-0' : 'w-4'
           }`}
-        ></span>
+        />
         <span
-          className={`block w-6 h-0.5 bg-white rounded transform transition duration-300 ease-in-out ${
-            isOpen ? '-rotate-45 -translate-y-2' : ''
+          className={`bg-blue-600 h-0.5 rounded transition-all duration-300 ${
+            isOpen ? '-rotate-45 -translate-y-[7px]' : 'w-2'
           }`}
-        ></span>
+        />
       </button>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <nav className="fixed top-[72px] left-0 w-full bg-[#1d1a2b] flex flex-col items-center py-8 space-y-5 text-base font-medium md:hidden z-10 shadow-md">
-          {navItems.map((item) => (
+        <nav className="absolute top-full left-0 w-full bg-white flex flex-col items-center py-6 space-y-5 text-base font-medium md:hidden shadow-md z-40">
+          {navItems.map((name) => (
             <Link
-              key={item.name}
-              to={item.name.toLowerCase()}
+              key={name}
+              to={name.toLowerCase()}
               smooth={true}
               duration={500}
               offset={-70}
               onClick={() => setIsOpen(false)}
-              className="
-                relative cursor-pointer transition-colors duration-200 
-                text-white hover:text-indigo-400
-                after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] 
-                after:bg-indigo-400 after:scale-x-0 hover:after:scale-x-100 
-                after:origin-center after:transition-transform after:duration-200
-                focus:outline-none focus:after:scale-x-100 focus:text-indigo-400
-              "
+              className="cursor-pointer text-gray-800 hover:text-blue-600 transition"
             >
-              {item.name}
+              {name}
             </Link>
           ))}
         </nav>

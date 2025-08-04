@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import Image1 from './Image/myImg.JPG';
+import { FaLaptopCode, FaPalette, FaServer } from 'react-icons/fa';
 
 function About() {
   useEffect(() => {
@@ -12,53 +11,66 @@ function About() {
   return (
     <section
       id="about"
-      className="bg-[#212436] text-white py-24 px-6 md:px-20 lg:px-32 min-h-screen flex flex-col md:flex-row items-center md:items-start gap-12"
+      className="bg-[#f9f9ff] text-gray-900 py-24 px-6 md:px-20 lg:px-32"
     >
-      <div
-        data-aos="fade-right"
-        data-aos-delay="100"
-        className="flex-shrink-0"
-      >
-        <img
-          src={Image1}
-          alt="Aryan Dewangan"
-          className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-8 border-indigo-400 shadow-lg transition-transform duration-300 hover:scale-[1.02]"
-        />
-      </div>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        
+        {/* === Left: Service Cards === */}
+        <div data-aos="fade-right" className="flex flex-col gap-6">
+          {/* Card 1 */}
+          <div className="flex items-start gap-5 bg-white p-6 rounded-xl shadow-md border hover:shadow-xl transition">
+            <div className="bg-blue-600 text-white p-3 rounded-full text-xl">
+              <FaLaptopCode />
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold">Website Design</h4>
+              <p className="text-gray-600 text-sm">
+                Clean, responsive layouts using React, HTML, Tailwind CSS.
+              </p>
+            </div>
+          </div>
 
-      <div data-aos="fade-left" data-aos-delay="200" className="max-w-xl flex flex-col gap-6">
-        <h3 className="text-xl font-medium tracking-wide uppercase text-indigo-400">
-          My <span className="text-indigo-400">Intro</span>
-        </h3>
-        <h2 className="text-4xl md:text-5xl font-semibold leading-tight text-white">
-          About Me
-        </h2>
-        <p className="text-gray-300 text-base md:text-lg leading-relaxed tracking-wide">
-          I'm a passionate full-stack developer with a focus on building high-performance web applications. My expertise lies in combining technical proficiency with creative problem-solving to deliver seamless user experiences.
-        </p>
-        <p className="text-gray-300 text-base md:text-lg leading-relaxed tracking-wide">
-          With a strong foundation in modern web technologies, I excel at tackling complex challenges and delivering projects that meet high standards. I value collaboration, continuous learning, and efficient project execution.
-        </p>
+          {/* Card 2 */}
+          <div className="flex items-start gap-5 bg-white p-6 rounded-xl shadow-md border hover:shadow-xl transition">
+            <div className="bg-pink-500 text-white p-3 rounded-full text-xl">
+              <FaPalette />
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold">UI/UX Design</h4>
+              <p className="text-gray-600 text-sm">
+                Beautiful, user-friendly interfaces with modern design systems.
+              </p>
+            </div>
+          </div>
 
-        <div className="flex gap-6 mt-4">
-          <a
-            href="https://github.com/aryand2002"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="text-white text-3xl transition-colors duration-200 hover:text-indigo-400 focus:outline-none focus:text-indigo-400"
-          >
-            <FaGithub />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/aryan-dewangan-985513212?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="text-white text-3xl transition-colors duration-200 hover:text-indigo-400 focus:outline-none focus:text-indigo-400"
-          >
-            <FaLinkedin />
-          </a>
+          {/* Card 3 */}
+          <div className="flex items-start gap-5 bg-white p-6 rounded-xl shadow-md border hover:shadow-xl transition">
+            <div className="bg-green-600 text-white p-3 rounded-full text-xl">
+              <FaServer />
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold">Web Hosting</h4>
+              <p className="text-gray-600 text-sm">
+                Hosting your site on Vercel, Netlify, or traditional servers.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* === Right: What I Do Text === */}
+        <div data-aos="fade-left" className="flex flex-col gap-6 text-start">
+          <h3 className="text-xl font-semibold text-blue-600 uppercase tracking-wide">
+            What I Do
+          </h3>
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+            I'm a full stack developer
+          </h2>
+          <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+            I specialize in building scalable and responsive websites with clean code and creative user interfaces. With a strong command of both frontend and backend technologies, I love building complete digital experiences.
+          </p>
+          <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+            So far, I’ve completed <span className="font-semibold text-blue-600">6 real-world projects</span>, including portfolio sites, dynamic web apps, and client-based dashboards — focusing on performance and great design.
+          </p>
         </div>
       </div>
     </section>
