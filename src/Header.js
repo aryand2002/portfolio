@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
+import MyLogo from './Image/Pink and Black Modern Initials Logo Design.png';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,10 +10,14 @@ function Header() {
 
   return (
     <header className="bg-white/80 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm text-gray-900 px-6 py-4 flex justify-between items-center">
-      {/* Logo or Initials */}
-      <h2 className="text-2xl font-bold font-sans tracking-tight text-blue-600">
-        <span className="bg-blue-600 text-white px-2 py-1 rounded">AD</span>
-      </h2>
+      {/* Logo */}
+      <div className="flex items-center">
+        <img
+          src={MyLogo}
+          alt="Logo"
+          className="h-10 w-auto object-contain"
+        />
+      </div>
 
       {/* Desktop Menu */}
       <nav className="hidden md:flex gap-8 font-medium text-base">
@@ -43,7 +48,7 @@ function Header() {
         />
         <span
           className={`bg-blue-600 h-0.5 my-1 w-6 rounded transition-all duration-300 ${
-            isOpen ? 'opacity-100 rotate-[-45deg] -translate-y-[6px]' : ''
+            isOpen ? '-rotate-45 -translate-y-[6px]' : ''
           }`}
         />
         <span
